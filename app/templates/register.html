@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center">Sign Up</h2>
+  <form method="POST" action="{{ url_for('register') }}">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.type != 'CSRFToken' %}
+    <div class="form-group">
+      {{ field.label }} {{ field(class='form-control') }}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Register</button>
+  </form>
+</div>
+{% endblock %}

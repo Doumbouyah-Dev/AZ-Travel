@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Contact Us</h2>
+  <p>Email: info@agencydomain.com</p>
+  <p>Phone: +123-456-7890</p>
+  <p>Address: 123 Study Abroad Lane, Global City</p>
+  <form method="POST" action="{{ url_for('contact') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.name.label }} {{ form.name(class='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.email.label }} {{ form.email(class='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.phone.label }} {{ form.phone(class='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.subject.label }} {{ form.subject(class='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.message.label }} {{ form.message(class='form-control', rows=5) }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

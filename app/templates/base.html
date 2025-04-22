@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Study Abroad Agency{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  {% include 'includes/_navbar.html' %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}{% include 'includes/_messages.html' %}{% endif %}
+  {% endwith %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'includes/_footer.html' %}
+</body>
+</html>

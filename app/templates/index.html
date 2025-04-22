@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% include 'includes/_hero_slider.html' %}
+
+  <section class="success-grid">
+    <div class="success-item"><h2>{{ success.scholarship_rate }}</h2><p>Scholarship Success</p></div>
+    <div class="success-item"><h2>{{ success.successful_admissions }}</h2><p>Successful Admissions</p></div>
+    <div class="success-item"><h2>{{ success.total_applicants }}</h2><p>Total Applicants</p></div>
+    <div class="success-item"><h2>{{ success.positive_reviews }}</h2><p>Positive Reviews</p></div>
+  </section>
+
+  <section class="testimonials">
+    {% for t in testimonials %}
+    <div class="testimonial">
+      <p>“{{ t.text }}”</p>
+      <p><strong>{{ t.student_name }}</strong></p>
+      <p>{% for i in range(t.rating) %}★{% endfor %}</p>
+    </div>
+    {% endfor %}
+  </section>
+{% endblock %}

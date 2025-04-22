@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Student Registration{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center">Student Registration</h2>
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for('student_register') }}">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.type != 'CSRFToken' %}
+      <div class="form-group">
+        {{ field.label }} {{ field(class='form-control') }}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Submit Registration</button>
+  </form>
+</div>
+{% endblock %}
